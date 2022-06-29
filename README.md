@@ -1,1 +1,1 @@
-# various_code_notes
+# Various Code and Technical Notes
