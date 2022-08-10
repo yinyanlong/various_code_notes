@@ -1,0 +1,65 @@
+\documentclass[a4paper]{report}
+\usepackage[UTF8,punct,linespread=1.56,heading=true,zihao=-4,fontset=windows]{ctex}
+\ctexset{
+  chapter/format = \huge\bfseries\raggedright,
+  section/format = \Large\bfseries\raggedright,
+  subsection/format = \large\bfseries\raggedright,
+}
+
+\usepackage[a4paper, left = 3.2cm, right = 3.2cm, top = 2.54cm, bottom = 2.54cm]{geometry}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{graphicx} 
+
+\usepackage{fontspec}
+\setmainfont{Bitstream Charter}
+\setmonofont[Scale=0.86]{JetBrainsMonoScaled}[
+  Path = ./font/JetBrainsMono/,
+  UprightFont = JetBrainsMono-Regular,
+  BoldFont = JetBrainsMono-Bold,
+  ItalicFont = JetBrainsMono-Italic,
+  BoldItalicFont = JetBrainsMono-BoldItalic
+]
+\providefontfamily\mintedfont{JetBrainsMonoForMinted}[
+  Scale=1.0,
+  NFSSFamily=JetBrainsMonoForMinted,
+  Path = ./font/JetBrainsMono/,
+  UprightFont = JetBrainsMono-Regular,
+  BoldFont = JetBrainsMono-Bold,
+  ItalicFont = JetBrainsMono-Italic,
+  BoldItalicFont = JetBrainsMono-BoldItalic
+]
+
+\usepackage{color}
+\usepackage{minted}
+\setminted{
+  fontsize=\footnotesize,
+  fontfamily=JetBrainsMonoForMinted,
+  breaklines=true,
+  breakanywhere=true,
+  baselinestretch=1.15,
+  frame=single
+}
+
+\usepackage{hyperref}
+\hypersetup{pdftex,colorlinks=true,allcolors=blue}
+\usepackage{hypcap}
+
+
+\title{报告标题}
+\author{作者信息}
+\date{2022年8月}
+
+\begin{document}
+
+设置正文的中文字体为“\verb+fontset=windows+”，也就是正文使用宋体，章节标题使用黑体。
+
+设置正文的英文字体为“Bitstream Charter”。设置正文中的等宽英文字体为JetBrains Mono，且设置Scale为0.86（大小接近默认的ttfamily字体）。
+
+为minted代码块设置字体，且为了不受全局等宽字体的Scale影响，创建了新的fontfamily，\verb+JetBrainsMonoForMinted+。
+
+以下为minted示例代码块：
+
+\inputminted{cpp}{./add.cpp}
+
+\end{document}
